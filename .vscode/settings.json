@@ -1,0 +1,55 @@
+{
+  "dev.containers.executeInWSL": true,
+  "task.allowAutomaticTasks": "on",
+  // format ->
+  "editor.formatOnSave": true,
+  "editor.indentSize": 2,
+  "files.insertFinalNewline": true,
+  "eslint.format.enable": true,
+  "eslint.trace.server": "verbose",
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+  },
+  // <- format
+  "storybook-opener.storybookOption.port": 9111,
+  "storybook-opener.startCommand": "pnpm storybook",
+  // editor view ->
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor",
+  },
+  "markdown.extension.list.indentationSize": "inherit",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    ".git": true,
+    ".pnpm-store": true,
+    "node_modules": true,
+    "**/.DS_Store": true,
+  },
+  "files.readonlyInclude": {
+    "node_modules/**/*": true,
+    "**/*.module.scss.d.ts": true,
+    "**/*.module.scss.d.ts.map": true,
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*": "$(capture).d.ts, $(capture).d.ts.map",
+    "package.json": "",
+    "tsconfig.json": "",
+  },
+  "workbench.editor.labelFormat": "default",
+  "workbench.editor.customLabels.patterns": {
+    "**/index.tsx": "${dirname}/.tsx",
+    "**/_layout/index.tsx": "${dirname(1)}/${dirname}/.tsx",
+    "**/_layout/Layout*": "${dirname(1)}/${filename}.${extname}",
+    "**/_layout/_layout*": "${dirname(1)}/${filename}.${extname}",
+  },
+  // <- editor view
+}
