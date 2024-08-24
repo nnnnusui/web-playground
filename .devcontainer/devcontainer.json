@@ -6,13 +6,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-				"SamKirkland.plop-templates",
-				"dbaeumer.vscode-eslint",
-				"stylelint.vscode-stylelint",
-				"vitest.explorer",
-				"AntiAntiSepticeye.vscode-color-picker",
-				"ygkn.storybook-opener",
-				"yzhang.markdown-all-in-one",
+        "SamKirkland.plop-templates",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "vitest.explorer",
+        "AntiAntiSepticeye.vscode-color-picker",
+        "ygkn.storybook-opener",
+        "yzhang.markdown-all-in-one",
         "ms-vsliveshare.vsliveshare",
         "bierner.emojisense",
         "eamodio.gitlens",
