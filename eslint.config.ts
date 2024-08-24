@@ -11,9 +11,6 @@ const compat = new FlatCompat({
   baseDirectory: "/work",
 } as any);
 
-// export default [
-//   ...compat.plugins("import").plugin,
-// ];
 export default tseslint.config(
   ...compat.plugins("import"),
   { ignores: ["dist"] },
@@ -31,7 +28,7 @@ export default tseslint.config(
     plugins: {
       "react": react,
       "react-hooks": reactHooks as any,
-      ...compat.plugins("import").plugin,
+      ...compat.plugins("import").plugin as any,
       // 'react-refresh': reactRefresh,
     },
     settings: {
