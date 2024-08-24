@@ -4,9 +4,15 @@
   // format ->
   "editor.formatOnSave": true,
   "editor.indentSize": 2,
+  "editor.tabSize": 2,
   "files.insertFinalNewline": true,
   "eslint.format.enable": true,
   "eslint.trace.server": "verbose",
+  "eslint.options": {
+    "flags": [
+      "unstable_ts_config"
+    ]
+  },
   "stylelint.validate": [
     "css",
     "scss"
@@ -17,6 +23,7 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
   },
+  "json.format.keepLines": true,
   // <- format
   "storybook-opener.storybookOption.port": 9111,
   "storybook-opener.startCommand": "pnpm storybook",
@@ -41,8 +48,8 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*": "$(capture).d.ts, $(capture).d.ts.map",
-    "package.json": "",
-    "tsconfig.json": "",
+    "package.json": "pnpm-lock.yaml",
+    "tsconfig.json": "tsconfig.*.json",
   },
   "workbench.editor.labelFormat": "default",
   "workbench.editor.customLabels.patterns": {
