@@ -1,9 +1,9 @@
 extends:
   - stylelint-config-standard-scss
-  - stylelint-config-recess-order
 plugins:
   - "@stylistic/stylelint-plugin"
   - stylelint-declaration-block-no-ignored-properties
+  - stylelint-order
 rules:
   alpha-value-notation: null
   color-function-notation: null
