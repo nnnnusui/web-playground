@@ -1,8 +1,10 @@
+import styles from "./App.module.scss";
+
 export const App = () => {
   return (
     <>
-      <a/>
-      <h1>hello.</h1>
+      <a className={styles.App} />
+      <h1 className={styles.Appap}>hello.</h1>
     </>
   );
 };

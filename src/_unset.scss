@@ -1,0 +1,20 @@
+/**
+ * :where() で包むことで、CSS適用の優先度を0にしている。
+ * :not() 内に記載した対象はリセットを行わない。
+ */
+
+:where(:not(
+html,
+iframe,
+canvas,
+img,
+svg,
+video,
+audio,
+svg *,
+symbol *
+)) {
+  all: unset;
+
+  display: revert;
+}

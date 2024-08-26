@@ -1,0 +1,31 @@
+@use "_unset";
+
+:root {
+  --test: 1;
+  background-color: var(--color-bg, hsl(0, 0%, 50%));
+
+  color: var(--color-main, white);
+}
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+h1 {
+  font-size: 1.58em;
+}
+
+hr {
+  border-width: 1px;
+  border-style: inset;
+}
+
+small {
+  font-size: 80%;
+}
