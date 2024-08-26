@@ -80,7 +80,7 @@ export default tseslint.config(
         closingSlash: "never",
         afterOpening: "never",
         beforeClosing: "proportional-always",
-        beforeSelfClosing: "never",
+        beforeSelfClosing: "proportional-always",
       }],
       "import/first": "warn",
       // "import/newline-after-import": "warn",
