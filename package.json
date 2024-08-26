@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host --profile",
-    "lint": "eslint --flag unstable_ts_config .",
+    "lint": "eslint . --flag unstable_ts_config --max-warnings 0",
     "test": "",
     "preview": "vite preview",
     "build": "tsc -b && vite build"
