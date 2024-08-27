@@ -25,6 +25,8 @@
   },
   "json.format.keepLines": true,
   // <- format
+  "plopTemplates.configFileName": "script/plopfile.ts",
+  "plopTemplates.plopCommand": "plopTemplates",
   "storybook-opener.storybookOption.port": 9111,
   "storybook-opener.startCommand": "pnpm storybook",
   // editor view ->
