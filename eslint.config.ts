@@ -4,6 +4,7 @@ import js from "@eslint/js";
 import vitest from "@vitest/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 // import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from "typescript-eslint";
@@ -32,9 +33,10 @@ export default tseslint.config(
     plugins: {
       "react": react,
       "react-hooks": reactHooks as any,
-      ...compat.plugins("import").plugin as any,
       // 'react-refresh': reactRefresh,
       vitest,
+      ...compat.plugins("import").plugin as any,
+      "unused-imports": unusedImports,
     },
     settings: {
       react: {
@@ -80,7 +82,8 @@ export default tseslint.config(
       "@/semi": "warn",
       "space-infix-ops": "off",
       "@/space-infix-ops": "warn",
-      "@typescript-eslint/no-unused-vars": "warn",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-indent": ["warn", 2],
@@ -103,8 +106,11 @@ export default tseslint.config(
         },
         distinctGroup: false,
       }],
+      "unused-imports/no-unused-imports": "warn",
+      "unused-imports/no-unused-vars": "warn",
       "vitest/consistent-test-filename": ["error", {
         pattern: ".*\\.(test|spec)\\.[tj]sx?$",
+        allTestPattern: ".*\\.(test|spec)\\.[tj]sx?$",
       }],
     },
   },
