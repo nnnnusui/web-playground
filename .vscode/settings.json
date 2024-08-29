@@ -52,6 +52,7 @@
     "*": "$(capture).d.ts, $(capture).d.ts.map",
     "package.json": "pnpm-lock.yaml",
     "tsconfig.json": "tsconfig.*.json",
+    "vite.config.ts": "vitest.*.ts",
   },
   "workbench.editor.labelFormat": "default",
   "workbench.editor.customLabels.patterns": {

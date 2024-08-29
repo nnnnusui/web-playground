@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
@@ -23,22 +24,30 @@ export default tseslint.config(
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...vitest.environments.env.globals,
+      },
     },
     plugins: {
       "react": react,
       "react-hooks": reactHooks as any,
       ...compat.plugins("import").plugin as any,
       // 'react-refresh': reactRefresh,
+      vitest,
     },
     settings: {
       react: {
         version: "detect",
       },
+      vitest: {
+        typecheck: true,
+      },
     },
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules as any,
+      ...vitest.configs.all.rules,
       // 'react-refresh/only-export-components': [
       //   'warn',
       //   { allowConstantExport: true },
@@ -93,6 +102,9 @@ export default tseslint.config(
           caseInsensitive: true,
         },
         distinctGroup: false,
+      }],
+      "vitest/consistent-test-filename": ["error", {
+        pattern: ".*\\.(test|spec)\\.[tj]sx?$",
       }],
     },
   },
