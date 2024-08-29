@@ -49,7 +49,6 @@ export default tseslint.config(
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules as any,
-      ...vitest.configs.all.rules,
       // 'react-refresh/only-export-components': [
       //   'warn',
       //   { allowConstantExport: true },
@@ -108,10 +107,13 @@ export default tseslint.config(
       }],
       "unused-imports/no-unused-imports": "warn",
       "unused-imports/no-unused-vars": "warn",
-      "vitest/consistent-test-filename": ["error", {
-        pattern: ".*\\.(test|spec)\\.[tj]sx?$",
-        allTestPattern: ".*\\.(test|spec)\\.[tj]sx?$",
-      }],
+    },
+  },
+  {
+    files: ["**/*.{test,spec}.{ts,tsx}"],
+    rules: {
+      ...vitest.configs.all.rules,
+      "vitest/consistent-test-filename": "off",
     },
   },
 );
