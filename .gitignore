@@ -7,11 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Generatives
 .pnpm-store
 node_modules
 dist
 dist-ssr
 *.local
+vite-profile-*.cpuprofile
+
+*.module.scss.d.ts
+*.module.scss.d.ts.map
 
 # Editor directories and files
 .idea
