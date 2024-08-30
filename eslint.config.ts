@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin-ts";
 import vitest from "@vitest/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -15,6 +16,7 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   ...compat.plugins("import"),
+  // stylistic.configs['all-flat'],
   { ignores: ["dist"] },
   {
     extends: [
@@ -31,6 +33,7 @@ export default tseslint.config(
       },
     },
     plugins: {
+      "@stylistic/ts": stylistic,
       "react": react,
       "react-hooks": reactHooks as any,
       // 'react-refresh': reactRefresh,
@@ -55,35 +58,45 @@ export default tseslint.config(
       // ],
       "arrow-parens": ["warn", "always"],
       "arrow-spacing": "warn",
-      "comma-dangle": ["warn", "always-multiline"],
+      "comma-dangle": "off",
+      "@stylistic/ts/comma-dangle": ["warn", "always-multiline"],
       "comma-spacing": "warn",
       "eol-last": ["warn", "always"],
-      "key-spacing": "warn",
-      "no-multiple-empty-lines": ["warn", {
-        max: 1,
-        maxEOF: 0,
-        maxBOF: 0,
-      }],
-      "no-trailing-spaces": "warn",
-      "object-curly-spacing": ["warn", "always"],
-      "object-property-newline": "warn",
-      "operator-linebreak": ["warn", "before"],
-      "quotes": ["warn", "double"],
       "indent": "off",
-      "@/indent": ["warn", 2, {
+      "@stylistic/ts/indent": ["warn", 2, {
         ignoredNodes: [
           "TSTypeParameterInstantiation",
           "TSUnionType",
           "TSIntersectionType",
         ],
       }],
+      "key-spacing": "warn",
+      "member-delimiter-style": "off",
+      "@stylistic/ts/member-delimiter-style": ["warn"],
+      "no-multiple-empty-lines": ["warn", {
+        max: 1,
+        maxEOF: 0,
+        maxBOF: 0,
+      }],
+      "no-trailing-spaces": "warn",
+      "object-curly-spacing": "off",
+      "@stylistic/ts/object-curly-spacing": ["warn", "always"],
+      "object-property-newline": "warn",
+      "operator-linebreak": ["warn", "before"],
+      "quotes": "off",
+      "@stylistic/ts/quotes": ["warn", "double"],
+      "space-before-function-paren": "off",
+      "@stylistic/ts/space-before-function-paren": "off",
       "semi": "off",
-      "@/semi": "warn",
+      "@/semi": "off",
+      "@stylistic/ts/semi": "warn",
       "space-infix-ops": "off",
-      "@/space-infix-ops": "warn",
+      "@/space-infix-ops": "off",
+      "@stylistic/ts/space-infix-ops": "warn",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+      "@stylistic/ts/quote-props": "off",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-indent": ["warn", 2],
