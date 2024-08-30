@@ -83,6 +83,7 @@ export default tseslint.config(
       "@/space-infix-ops": "warn",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-indent": ["warn", 2],
