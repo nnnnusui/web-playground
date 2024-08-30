@@ -97,8 +97,16 @@ export default tseslint.config(
       "import/first": "warn",
       // "import/newline-after-import": "warn",
       "import/order": ["warn", {
-        groups: [["builtin", "external"], ["object", "internal"], "sibling", "type", "index"],
-        pathGroups: [],
+        groups: [["builtin", "external", "type"], ["internal", "parent", "sibling"], "index", "object"],
+        pathGroups: [{
+          pattern: "@/**",
+          group: "internal",
+          position: "before",
+        }, {
+          pattern: "./**.module.scss",
+          group: "index",
+          position: "before",
+        }],
         "newlines-between": "always",
         alphabetize: {
           order: "asc",

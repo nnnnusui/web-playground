@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import "./index.scss";
 import { App } from "./App";
+import "./index.scss";
 
 console.log("loaded[src/main.tsx]");
 const root = document.getElementById("root");
