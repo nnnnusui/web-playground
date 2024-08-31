@@ -18,7 +18,6 @@ function deleteFilesInDirectory(startPath: string, removeTargetRegex: RegExp) {
     } else if (removeTargetRegex.test(filePath)) {
       const scssBasePath = removeTargetRegex.exec(filePath)?.[1];
       const scssFilePath = `${scssBasePath}.scss`;
-      console.log(scssFilePath);
       if (fs.existsSync(scssFilePath)) return;
       console.log("Deleting file: ", filePath);
       fs.unlinkSync(filePath); // delete file.
