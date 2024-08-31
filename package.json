@@ -6,6 +6,7 @@
     "plopTemplates": "pnpm cross-env NODE_OPTIONS='--import tsx' plop --plopfile=script/plopfile.ts",
     "dev:vite": "vite --host",
     "dev:rm-hcm": "nodemon --ext scss --watch src --exec 'node --import tsx script/remove-unused-hcm.ts'",
+    "dev:storybook": "pnpm storybook --no-open",
     "dev": "pnpm /^dev:.*/",
     "lint:eslint": "eslint . --flag unstable_ts_config --max-warnings 0",
     "lint:stylelint": "stylelint **/*.{css,scss,sass}",
