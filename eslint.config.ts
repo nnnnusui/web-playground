@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin-ts";
 import vitest from "@vitest/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import storybook from "eslint-plugin-storybook";
 import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 // import reactRefresh from 'eslint-plugin-react-refresh'
@@ -12,13 +12,12 @@ import tseslint from "typescript-eslint";
 
 const compat = new FlatCompat({
   baseDirectory: "/work",
-} as any);
+});
 
-export default tseslint.config(
+export default [
   ...compat.plugins("import"),
-  // stylistic.configs['all-flat'],
   { ignores: ["dist"] },
-  {
+  ...tseslint.config({
     extends: [
       js.configs.recommended,
       ...tseslint.configs.strict,
@@ -35,10 +34,10 @@ export default tseslint.config(
     plugins: {
       "@stylistic/ts": stylistic,
       "react": react,
-      "react-hooks": reactHooks as any,
+      "react-hooks": reactHooks,
       // 'react-refresh': reactRefresh,
       vitest,
-      ...compat.plugins("import").plugin as any,
+      ...compat.plugins("import").plugin,
       "unused-imports": unusedImports,
     },
     settings: {
@@ -51,7 +50,7 @@ export default tseslint.config(
     },
     rules: {
       ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules as any,
+      ...reactHooks.configs.recommended.rules,
       // 'react-refresh/only-export-components': [
       //   'warn',
       //   { allowConstantExport: true },
@@ -130,12 +129,20 @@ export default tseslint.config(
       "unused-imports/no-unused-imports": "warn",
       "unused-imports/no-unused-vars": "warn",
     },
-  },
+  }),
   {
+    name: "for tests",
     files: ["**/*.{test,spec}.{ts,tsx}"],
     rules: {
       ...vitest.configs.all.rules,
       "vitest/consistent-test-filename": "off",
     },
   },
-);
+  ...storybook.configs["flat/recommended"],
+  {
+    "files": ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+    "rules": {
+      "storybook/default-exports": "error",
+    },
+  },
+];

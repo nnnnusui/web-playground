@@ -13,6 +13,7 @@ node_modules
 dist
 dist-ssr
 *.local
+*storybook.log
 vite-profile-*.cpuprofile
 
 *.module.scss.d.ts
