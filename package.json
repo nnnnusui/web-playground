@@ -71,5 +71,8 @@
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.0.5"
   },
+  "resolutions": {
+    "inquirer": "9.3.5"
+  },
   "private": true
 }
