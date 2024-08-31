@@ -80,7 +80,10 @@ export default [
       "no-trailing-spaces": "warn",
       "object-curly-spacing": "off",
       "@stylistic/ts/object-curly-spacing": ["warn", "always"],
-      "object-property-newline": "warn",
+      "object-property-newline": "off",
+      "@stylistic/ts/object-property-newline": ["warn", {
+        allowAllPropertiesOnSameLine: true,
+      }],
       "operator-linebreak": ["warn", "before"],
       "quotes": "off",
       "@stylistic/ts/quotes": ["warn", "double"],
