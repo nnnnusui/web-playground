@@ -15,6 +15,7 @@ dist-ssr
 *.local
 *storybook.log
 vite-profile-*.cpuprofile
+vite.config.*.timestamp-*
 
 *.module.scss.d.ts
 *.module.scss.d.ts.map

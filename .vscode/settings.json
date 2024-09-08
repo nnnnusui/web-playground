@@ -27,7 +27,7 @@
   // <- format
   "plopTemplates.configFileName": "script/plopfile.ts",
   "plopTemplates.plopCommand": "plopTemplates",
-  "storybook-opener.storybookOption.port": 9111,
+  "storybook-opener.storybookOption.port": 6006,
   "storybook-opener.startCommand": "pnpm storybook",
   // editor view ->
   "workbench.editorAssociations": {
@@ -61,5 +61,9 @@
     "**/_layout/Layout*": "${dirname(1)}/${filename}.${extname}",
     "**/_layout/_layout*": "${dirname(1)}/${filename}.${extname}",
   },
+  "markdown.extension.completion.enabled": true,
+  "markdown.extension.orderedList.autoRenumber": false,
+  "vitest.nodeExecutable": "/usr/bin/node",
+  "vitest.configSearchPatternExclude": "{**/node_modules/**,**/.*/**,**/*.d.ts,vite.config.*.timestamp-*}",
   // <- editor view
 }

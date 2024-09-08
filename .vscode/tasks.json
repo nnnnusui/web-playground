@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"label": "dev tasks",
-			"command": "pnpm /^dev:.*/",
+			"command": "pnpm dev",
 			"detail": "Start development tasks.",
 			"type": "shell",
 			"isBackground": true,
