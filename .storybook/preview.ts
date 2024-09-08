@@ -12,6 +12,7 @@ const preview: Preview = {
       },
     },
     docs: {
+      autoplay: true,
       theme: themes.dark,
     },
   },
