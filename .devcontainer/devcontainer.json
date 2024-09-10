@@ -11,6 +11,7 @@
         "dbaeumer.vscode-eslint",
         "stylelint.vscode-stylelint",
         "vitest.explorer",
+        "ms-playwright.playwright",
         "AntiAntiSepticeye.vscode-color-picker",
         "ygkn.storybook-opener",
         "yzhang.markdown-all-in-one",
@@ -22,5 +23,5 @@
       ]
     }
   },
-  "remoteUser": "node"
+  "remoteUser": "pwuser"
 }

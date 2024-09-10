@@ -12,6 +12,10 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+/src/__vrt__/*
+!/src/__vrt__/vrt.test.ts
+/playwright/.cache/
+/storybook-static/
 *.local
 *storybook.log
 vite-profile-*.cpuprofile

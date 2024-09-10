@@ -1,5 +1,5 @@
-ARG VARIANT="22"
-FROM node:${VARIANT}
+ARG VARIANT="v1.47.0-jammy"
+FROM mcr.microsoft.com/playwright:${VARIANT}
 
 # Install apps
 RUN apt update -y
