@@ -1,0 +1,12 @@
+.ScrollBarTo {
+  content: '';
+  rotate: calc(var(--rotate) * 1deg);
+  scale: var(--scale);
+
+  overflow: auto;
+}
+
+.ScrollBarToContentWrapper {
+  rotate: calc(var(--rotate) * -1deg);
+  scale: var(--scale);
+}
