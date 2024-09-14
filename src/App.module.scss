@@ -1,7 +1,16 @@
 .App {
   content: '';
+  height: 100%;
 
-  &ap {
-    content: '';
-  }
+  display: grid;
+  grid-template:
+    "preview control" 1fr
+    / 1fr auto;
+}
+
+.Control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,7 +1,6 @@
 @use "_unset";
 
 :root {
-  --test: 1;
   background-color: var(--color-bg, hsl(0, 0%, 50%));
 
   color: var(--color-main, white);

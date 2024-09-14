@@ -1,0 +1,11 @@
+.Screen {
+  content: '';
+  position: relative;
+
+  overflow: hidden;
+}
+
+.Rendered {
+  position: absolute;
+  inset: 0;
+}
