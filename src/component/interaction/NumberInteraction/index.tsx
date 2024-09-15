@@ -26,7 +26,7 @@ export const NumberInteraction = ({
   const step = 0.01;
   const drag = useDragInteraction({
     onStart: () => state,
-    onUpdate: (updated) => setState(Math.floor((updated.start.value + updated.diff.y * step) * 100) / 100),
+    onUpdate: (updated) => setState(updated.start.value + updated.diff.y * step),
   });
 
   return (
@@ -40,9 +40,12 @@ export const NumberInteraction = ({
       <input className={clsx(styles.Value)}
         data-testid={"text"}
         type="number"
-        value={input ?? state ?? ""}
+        value={input ?? state != null ? `${Math.round(state * 100) / 100}` : ""}
         placeholder={label}
-        onChange={(event) => setInput(event.currentTarget.value)}
+        onChange={(event) => {
+          if (state === Number(event.currentTarget.value)) return;
+          setInput(event.currentTarget.value);
+        }}
         onBlur={(event) => confirm(event.currentTarget.value)}
       />
     </div>

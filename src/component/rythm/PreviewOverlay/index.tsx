@@ -3,7 +3,6 @@ import {
   ReactNode,
   useEffect,
   useRef,
-  useState,
 } from "react";
 
 import { useScreenSize } from "@/component/provide/Screen";
@@ -23,31 +22,32 @@ export const PreviewOverlay = ({
   gameDuration: number;
   scoreLength: number;
 }): ReactNode => {
+  const lastSetGameTimeRef = useRef(0);
   const ref = useRef<HTMLDivElement | null>(null);
-  const [inAction, setInAction] = useState(false);
   const screenSize = useScreenSize();
 
   const scoreScrollPx = (screenSize.height * scoreLength) / gameDuration;
-  const gameProgessPercentage = gameTime / scoreLength;
   useEffect(() => {
-    if (inAction) return;
+    const hasBeenUpdatedElsewhere = gameTime !== lastSetGameTimeRef.current;
+    if (!hasBeenUpdatedElsewhere) return;
     if (!ref.current) return;
+    const gameProgessPercentage = gameTime / scoreLength;
     ref.current.scrollTo({
       top: scoreScrollPx * gameProgessPercentage,
     });
-  }, [inAction, scoreScrollPx, gameProgessPercentage]);
+  }, [scoreScrollPx, gameTime, scoreLength]);
 
   return (
-    <ScrollBarTo className={clsx(styles.PreviewOverlay)}
-      ref={ref}
-      flipVertical
-      onPointerDown={() => setInAction(true)}
-      onPointerUp={() => setInAction(false)}
-      onScroll={() => {
-        if (!inAction) return;
-        if (!ref.current) return;
-        setGameTime(ref.current.scrollTop / scoreScrollPx * scoreLength);
-      }}
+    <ScrollBarTo className={clsx(styles.PreviewOverlay,
+    )}
+    ref={ref}
+    flipVertical
+    onScroll={() => {
+      if (!ref.current) return;
+      const nextTime = ref.current.scrollTop / scoreScrollPx * scoreLength;
+      lastSetGameTimeRef.current = nextTime;
+      setGameTime(nextTime);
+    }}
     >
       <div
         style={{
